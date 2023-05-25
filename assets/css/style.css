@@ -73,6 +73,10 @@ a:focus {
     padding-top: 10px;
 }
 
+.viewed_model{
+    width: 100vh;
+}
+
 
 /*******************************/
 /********** Header CSS *********/
@@ -412,9 +416,7 @@ a:focus {
 .page-header a:last-child::after {
     display: none;
 }
-.viewed_model{
-    width: 100vh;
-}
+
 
 /*******************************/
 /******* Section Header ********/
