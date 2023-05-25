@@ -44,8 +44,9 @@
         import {GLTFLoader} from 'https://unpkg.com/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
 
         //renderer
+        var canvasHeight = 250;
         const renderer = new THREE.WebGLRenderer({antialias:true});
-        renderer.setSize(window.innerWidth,window.innerHeight);
+        renderer.setSize(window.innerWidth,canvasHeight);
         document.getElementsByClassName('viewed_model')[0].insertBefore(renderer.domElement, document.getElementsByClassName('viewed_model')[0].firstChild);
 
         //scene
