@@ -369,8 +369,8 @@ a:focus {
 /*******************************/
 .page-header {
     position: relative;
-    margin-bottom: 45px;
-    padding: 90px 0;
+    margin: 50px;
+    /*padding: 90px 0;*/
 
     display: -webkit-box;
     display: -webkit-flex;
@@ -412,7 +412,9 @@ a:focus {
 .page-header a:last-child::after {
     display: none;
 }
-
+.viewed_model{
+    width: 100%;
+}
 
 /*******************************/
 /******* Section Header ********/
