@@ -46,7 +46,7 @@
         //renderer
         const renderer = new THREE.WebGLRenderer({antialias:true});
         renderer.setSize(window.innerWidth,window.innerHeight);
-        document.getElementsByClassName('viewed_model')[0].insertBefore(renderer.domElement, document.getElementsByClassName('viewed_model')[0].firstChild);
+        document.viewed_model.appendChild(renderer.domElement);
 
         //scene
         const scene = new THREE.Scene();
