@@ -53,8 +53,11 @@
         scene.background = new THREE.Color(0xdddddd);
 
         //camera
-        const camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,200);
-        camera.position.set(5,5,2.5);
+        const camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
+        camera.rotation.y = 45/180*Math.PI;
+        camera.position.x = 800;
+        camera.position.y = 100;
+        camera.position.z = 1000;
 
         //light
         const ambientLight = new THREE.AmbientLight (0xffffff);
@@ -70,7 +73,7 @@
         const loader = new GLTFLoader();
         loader.load('models/scene.gltf', function(gltf){
           const model = gltf.scene;
-          model.position.set(0,0,0);
+          model.scale.set(0.5,5.0,5.0);
 
           scene.add(model);
           renderer.render(scene,camera);
