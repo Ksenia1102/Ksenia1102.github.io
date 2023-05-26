@@ -73,6 +73,7 @@ a:focus {
     padding-top: 10px;
 }
 .model_container{
+    display: flex;
     overflow: hidden;
     position: relative;
     padding-top: min(550px ,100%);
