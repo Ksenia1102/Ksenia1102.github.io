@@ -157,9 +157,9 @@
                        
                        <input type="button" class="view_button" id="buttonClck" value="Посмотреть в своем пространстве">
                     </div> 
-                    <div class="window_qr">
+                    <div class="window_qr" id="window_qr">
                         <input type="button" class="exit" id="exitClick" value="X">
-                       <img id="qr" src="assets/img/qrcode.png"> 
+                       <img src="assets/img/qrcode.png"> 
                     </div>
                     
                      
@@ -461,9 +461,6 @@
             <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         </div>
        <script>
-        // exitClick.onclick = function(){
-        //     document.getElementById("window_qr").style.visibility = "hidden";
-        // }
         buttonClck.onclick = function() {
 
             if (navigator.userAgentData.mobile) {
@@ -474,9 +471,10 @@
                 document.getElementById("window_qr").style.visibility = "visible";
                 
                 }
-                    
             
-            
+        }
+        exitClick.onclick = function(){
+            document.getElementById("window_qr").style.visibility = "hidden";
         }
      </script>
         <!-- JavaScript Libraries -->
