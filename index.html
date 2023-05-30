@@ -157,7 +157,7 @@
                        
                        <input type="button" class="view_button" id="buttonClck" value="Посмотреть в своем пространстве">
                     </div> 
-                    <img class="qr" src="assets/img/qrcode.png">
+                    <img id="qr" class="qr" src="assets/img/qrcode.png">
                      
                 </div>
                 </div>
@@ -464,7 +464,7 @@
                 alert("мобилка");
             }
             else{
-                document.getElementsByClassName('qr').style.visibility = "visible";
+                document.getElementById("qr").style.visibility = "visible";
                 // document.getElementsByClassName('viewed_model')[0].src = "assets/img/qrcode.png";
                 
 
