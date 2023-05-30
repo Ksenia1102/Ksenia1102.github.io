@@ -107,6 +107,10 @@ a:focus {
     margin: 20px;
     position: relative;
 }
+.qr{
+    position: absolute;
+    left: 700px;
+}
 
 
 /*******************************/
