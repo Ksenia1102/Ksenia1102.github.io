@@ -110,6 +110,7 @@ a:focus {
 .qr{
     position: absolute;
     left: 700px;
+    visibility: hidden;
 }
 
 
