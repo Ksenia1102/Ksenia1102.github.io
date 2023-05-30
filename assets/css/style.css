@@ -107,7 +107,8 @@ a:focus {
     margin: 20px;
     position: relative;
 }
-.qr{
+.window_qr{
+    display: flex;
     position: absolute;
     left: 700px;
     visibility: hidden;

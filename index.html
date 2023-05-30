@@ -157,7 +157,11 @@
                        
                        <input type="button" class="view_button" id="buttonClck" value="Посмотреть в своем пространстве">
                     </div> 
-                    <img id="qr" class="qr" src="assets/img/qrcode.png">
+                    <div class="window_qr">
+                        <input type="button" class="exit" id="exitClick" value="X">
+                       <img id="qr" src="assets/img/qrcode.png"> 
+                    </div>
+                    
                      
                 </div>
                 </div>
@@ -457,6 +461,9 @@
             <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         </div>
        <script>
+        exitClick.onclick = function(){
+            document.getElementById("window_qr").style.visibility = "hidden";
+        }
         buttonClck.onclick = function() {
 
             if (navigator.userAgentData.mobile) {
@@ -464,22 +471,13 @@
                 alert("мобилка");
             }
             else{
-                document.getElementById("qr").style.visibility = "visible";
-                // document.getElementsByClassName('viewed_model')[0].src = "assets/img/qrcode.png";
+                document.getElementById("window_qr").style.visibility = "visible";
                 
-
-                 
-                //     var img = new Image();
-                //     img.src ='assets/img/qrcode.png';
-                //     // document.getElementById('viewed_model').appendChild(img);
-                //     document.querySelector('.viewed_model')?.replaceWith(createImageElement(img));
                 }
                     
             
             
         }
-
- 
      </script>
         <!-- JavaScript Libraries -->
         <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
