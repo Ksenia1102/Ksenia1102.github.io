@@ -4,35 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<title>AR</title>
+	<title>TestMobile</title>
 </head>
 <body>
 
 
-	<div id="mySidenav" class="sidenav">
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a class="ar-object" id="1" href="#">Model1</a>
-	  <a class="ar-object" id="2" href="#">Model2</a>
-	  <a class="ar-object" id="3" href="#">Model3</a>
-	  <a class="ar-object" id="4" href="#">Model4</a>
-	</div>
-
-	<div id="container" style="position: fixed; background: lightgray;"></div>
-
-	<span style="color: whitesmoke; font-size:30px;cursor:pointer; position: absolute;" onclick="openNav()">&#9776; open</span>
-
-	
-
-	<script>
-	function openNav() {
-	  document.getElementById("mySidenav").style.width = "250px";
-	}
-
-	function closeNav() {
-	  document.getElementById("mySidenav").style.width = "0";
-	}
-	</script>
 	
 	<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.2/dist/es-module-shims.js"></script>
 	<script type="importmap">
@@ -45,58 +21,18 @@
 
 			import * as THREE from 'three';
 			import { ARButton } from 'https://unpkg.com/three@0.152.2/examples/jsm/webxr/ARButton.js';
-			import {OrbitControls} from 'https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js';
-        	import {GLTFLoader} from 'https://unpkg.com/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
-        	import {RGBELoader} from 'https://unpkg.com/three@0.152.2/examples/jsm/loaders/RGBELoader.js';
 
-        
-        // import {} from 'https://unpkg.com/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
-        // import {} from 'https://unpkg.com/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
+			let container;
+			let camera, scene, renderer;
+			let controller;
 
+			let reticle;
 
-			var container;
-			var camera, scene, renderer;
-			var controller;
-
-			var reticle, current_object, controls;
-
-			var hitTestSource = null;
-			var hitTestSourceRequested = false;
+			let hitTestSource = null;
+			let hitTestSourceRequested = false;
 
 			init();
 			animate();
-
-			$(".ar-object").click(function(){
-				if(current_object != null){
-					scene.remove(current_object);
-				}
-				loadModel($(this).attr("id"));
-			})
-//событие включение камеры
-			$("ARButton").click(function() {
-				current_object.visible = false;
-			})
-
-			function loadModel(model) {
-
-				var loader = new GLTFLoader();
-		        loader.load('models/3d/'+model+'.glb', function(glb){
-
-		          current_object = glb.scene;
-		          // .children[0];
-		          
-		          scene.add(current_object);
-
-		          var box = new THREE.Box3();
-		          box.setFromObject(current_object);
-		          box.getCenter(controls.target);
-
-		          controls.update();
-
-		          render();
-				
-				});
-		    }
 
 			function init() {
 
@@ -105,15 +41,11 @@
 
 				scene = new THREE.Scene();
 
-				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 200 );
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
 
-				const directionalLight = new THREE.DirectionalLight(0xdddddd,1);
-			        directionalLight.position.set(0,0,1).normalize();
-			        directionalLight.castShadow = true;
-			        scene.add(directionalLight);
-
-			       const ambientLight = new THREE.AmbientLight (0x404040,1);
-        			scene.add(ambientLight);
+				const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
+				light.position.set( 0.5, 1, 0.25 );
+				scene.add( light );
 
 				//
 
@@ -123,14 +55,6 @@
 				renderer.xr.enabled = true;
 				container.appendChild( renderer.domElement );
 
-
-				controls = new OrbitControls(camera, renderer.domElement);
-				controls.addEventListener('change', () => {renderer.render(scene, camera)});
-				controls.minDistance = 2;
-				controls.maxDistance = 10;
-				controls.target.set(0,0,-0.2);
-				controls.enableDamping = true;
-				controls.dampingFactor = 0.05;
 				//
 
 				document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
@@ -143,14 +67,11 @@
 
 					if ( reticle.visible ) {
 
-						// const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-						// const mesh = new THREE.Mesh( geometry, material );
-						// reticle.matrix.decompose( mesh.position, mesh.quaternion, mesh.scale );
-						// mesh.scale.y = Math.random() * 2 + 1;
-						// scene.add( mesh );
-
-						current_object.position.setFromMatrixPostion(reticle.matrix);
-						current_object.visible = true;
+						const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
+						const mesh = new THREE.Mesh( geometry, material );
+						reticle.matrix.decompose( mesh.position, mesh.quaternion, mesh.scale );
+						mesh.scale.y = Math.random() * 2 + 1;
+						scene.add( mesh );
 
 					}
 
@@ -188,8 +109,6 @@
 			function animate() {
 
 				renderer.setAnimationLoop( render );
-				requestAnimationFrame(animate);
-				controls.update();
 
 			}
 
@@ -216,11 +135,6 @@
 
 							hitTestSourceRequested = false;
 							hitTestSource = null;
-
-							reticle.visible = false;
-							var box = new THREE.Box3();
-		          			box.setFromObject(current_object);
-		          			box.getCenter(controls.target);
 
 						} );
 
@@ -255,5 +169,6 @@
 
 		</script>
 		<div></div>
+		<button id="ARButton" >AR </button>
 </body>
 </html>
