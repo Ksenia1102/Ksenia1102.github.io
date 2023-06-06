@@ -1,4 +1,4 @@
-<!-- <?php session_start();
+<?php session_start();
 require_once ('assets/php/connect.php');
 
 
@@ -8,7 +8,7 @@ $sql="SELECT * FROM models WHERE id_model ='$idmodel'";
 $result=$connect->query($sql);
  $arr=$result->fetch_all(MYSQLI_ASSOC);
  
-?> -->
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -45,15 +45,15 @@ $result=$connect->query($sql);
 								  </select></form>
 								  </div>
 
-								<!-- <?php
+								<?php
 							foreach ($arr as $value) {
 
 							?>
-							<form method="post"> -->
+							<form method="post">
 						
 							<div>
 								<model-viewer id="model_3d"
-								src="models/1.glb"
+								src="models/<?=$value['3d']?>"
 								auto-rotate
 								camera-controls
 								ar
@@ -75,13 +75,13 @@ $result=$connect->query($sql);
 							    <img src="assets/img/hand.png">
 							  </div>	
 								</model-viewer>
-
+								
 								
 							</div>
-						<!-- </form>
+						</form>
 							<?php
 							}
-							?>  -->
+							?> 
 							<button  id="buttonClck" class="view">VIEW</button>
 							<div class="window_qr" id="window_qr">
 								<p>
@@ -117,7 +117,7 @@ $result=$connect->query($sql);
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<!-- <?php
+							<?php
 							foreach ($arr as $value) {
 
 							?>
@@ -127,7 +127,7 @@ $result=$connect->query($sql);
 							</form>
 							<?php
 							}
-							?> -->
+							?>
 
 
 							

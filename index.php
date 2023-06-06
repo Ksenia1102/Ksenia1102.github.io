@@ -1,4 +1,4 @@
-<!-- <?php session_start();
+<?php session_start();
 require_once ('assets/php/connect.php');
 
 $sql="SELECT * FROM models";
@@ -7,8 +7,9 @@ $sql="SELECT * FROM models";
    
   if (isset($_POST['idmod'])) {
     $_SESSION["idmodel"] =$_POST['idmod'];
+header("Location: generic.php"); 
 }
-?> -->
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -86,21 +87,29 @@ $sql="SELECT * FROM models";
 							<div class="head" >
 								
 								<div id="logo">
-									<h1><a href="index.php">Escape Velocity</a></h1>
-									<p>A free responsive site template by HTML5 UP</p>
+									<h1><a href="index.php">LIFE_SPACE</a></h1>
+									<p>A free 3d models for download and introductory view</p>
 								</div>
 
 								<div class="model_container" >
 								<model-viewer class="model"
 								src="models/scene.gltf"
 								auto-rotate
+
+								shadow-intensity="1"
 								camera-controls
 								ar
-								ios-src="models/scene.gltf"></model-viewer>
-								<!-- <input type="button" class="view_button" id="buttonClck" value="Посмотреть в своем пространстве"> -->
-								<button id="buttonClck" class="view">VIEW</button>
+								ios-src="models/scene.gltf">
+									
+								</model-viewer>
+								
+								<button  id="buttonClck" class="view">VIEW</button>
 							</div>
 							<div class="window_qr" id="window_qr">
+								<p>
+                        				Для того чтобы начать остался один шаг! Пожалуйста, отсканируйте QR-код чтобы перейти на мобильную версию сайта
+                        			</p>
+                        		</ul>
                         		<input type="button" class="exit" id="exitClick" value="X">
                        			<img src="assets/img/qrcode.png"> 
                     		</div>
@@ -123,7 +132,7 @@ $sql="SELECT * FROM models";
 						<ul>
 							<li><a href="index.php">Home</a></li>
 							<li><a href="generic.html">Models</a></li>
-							<li><a href="generic.html">Log Out</a></li>
+							<li><a href="auth.php">Log Out</a></li>
 							<li><a href="elements.html">Elements</a></li>
 						</ul>
 					</nav>
@@ -137,27 +146,42 @@ $sql="SELECT * FROM models";
 								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 							</header>
 							<section class="tiles">
-								<!-- <?php
+								<?php
 							foreach ($arr as $value) {
 
 							?>
 							<form method="post">
+								
+									
+								
 								<article class="col-6 col-12-xsmall work-item">
+
 									<span class="image">
 										<img src="images/<?=$value['image']?>" alt="" />
 									</span>
-									<a name="idmod" value="<?=$value['id_model']?>" href="generic.html">
+									<button style="
+									width: 70%;
+								    position: absolute;
+								    margin: 1%;
+								    left: 50%;
+								    -ms-transform: translate(-50%, -50%);
+								    transform: translate(-50%, -50%);" name="idmod" value="<?=$value['id_model']?>">SEE</button>
+									<a>
 										<h2><?=$value['name_model']?></h2>
 										<div class="content">
 											<p><?=$value['discription']?></p>
 										</div>
 									</a>
+									
 								</article>
+								
+							
+
 							</form>
 							<?php
 							}
-							?> -->
-								<article class="col-6 col-12-xsmall work-item">
+							?> 
+								<!-- <article class="col-6 col-12-xsmall work-item">
 									<span class="image">
 										<img src="images/01.jpg" alt="" />
 									</span>
@@ -277,7 +301,7 @@ $sql="SELECT * FROM models";
 											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
 										</div>
 									</a>
-								</article>
+								</article> -->
 							</section>
 						</div>
 					</div>
@@ -326,18 +350,23 @@ $sql="SELECT * FROM models";
 			</div>
 
 			<script type="module">
-        buttonClck.onclick = function() {
-            if (navigator.userAgentData.mobile) {
+        if (navigator.userAgentData.mobile){
+				 	document.getElementById("buttonClck").style.visibility = "hidden";
+				 }
+				 
 
-            alert("mobile");
+				    buttonClck.onclick = function() {
+            		if (navigator.userAgentData.mobile) {
 
-        }
+            		document.getElementById("buttonClck").style.visibility = "hidden";
 
-            else{
-                document.getElementById("window_qr").style.visibility = "visible";
+        			}
+
+            		else{
+                	document.getElementById("window_qr").style.visibility = "visible";
                 
-            }
-        }
+            		}
+        		}
             
         
     
