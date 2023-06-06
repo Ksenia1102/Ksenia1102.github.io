@@ -33,13 +33,14 @@ $result=$connect->query($sql);
 								<a href="index.html" class="logo">
 									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
 								</a>
+								<button style="position: absolute;z-index: 100;" id="opt">ПРОВЕРКА</button>
 
 								<div class="placement">
 									
 									<p>Select the surface on which the model will be placed</p>
 									<hr size=3px align="left" width="100%" margin = 0>
 									<form autofocus="autofocus">
-									<select class="style2" autofocus="autofocus">
+									<select id="arplacement" class="style2" >
 								    <option value="floor">FLOOR</option>
 								    <option value="wall">WALL</option>
 								  </select></form>
@@ -58,10 +59,12 @@ $result=$connect->query($sql);
 								camera-controls
 								ar
 								touch-action="pan-y"
-								placement="wall"
 								shadow-intensity="1"
+								ar-placement="floor"
+								ar-modes="scene-viewer quick-look"
 								ios-src="models/scene.gltf"
 								alt="A 3D model carousel"
+								data-js-focus-visible
 								style="width: auto;
     							height: 76vh;
 						    	padding-top: 5%;
@@ -291,6 +294,21 @@ $result=$connect->query($sql);
         exitClick.onclick = function(){
             document.getElementById("window_qr").style.visibility = "hidden";
         }
+
+        
+        	
+        	
+        	const modelViewer = document.getElementById("model_3d");
+
+        	const select = document.getElementById("arplacement");
+      select.addEventListener("input", event => {
+        console.log("CHANGE AR PLACEMENT");
+        console.log(event.target.value);
+        modelViewer.arPlacement = event.target.value;
+        
+
+        });
+  
      </script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
