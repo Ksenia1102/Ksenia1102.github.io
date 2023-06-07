@@ -1,11 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
 
-/*
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -2422,8 +2417,8 @@ input, select, textarea {
 		background-color: transparent;
 		border-radius: 4px;
 		border: 0;
-		box-shadow: inset 0 0 0 2px white;
-		/*color: #585858 !important;*/
+		box-shadow: inset 0 0 0 2px rgb(204 197 197 / 93%);
+		color: #8f8d8d  !important;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -2435,8 +2430,8 @@ input, select, textarea {
 		padding: 0 1.25em 0 1.6em;
 		text-align: center;
 		text-decoration: none;
-		text-overflow: ellipsis;
-		text-transform: uppercase;
+		text-overflow: elipsis;
+		text-transform: uppercase;l
 		white-space: nowrap;
 	}
 
@@ -2495,7 +2490,7 @@ input, select, textarea {
 		button.primary,
 		.button.primary {
 			box-shadow: none;
-			background-color: #585858;
+			background-color: #8f8d8d;
 			color: #ffffff !important;
 		}
 
@@ -2732,14 +2727,88 @@ input, select, textarea {
 
 		
 
+/* Model-viewer */
+  model-viewer {
+   
+    overflow-x: hidden;
+  }
+  
 
+  #ar-button {
+    background-image: url(assets/img/cube.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 12px 50%;
+    
+    position: absolute;
+    left: 70%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    bottom:60px;
+    padding: 0px 16px 0px 40px;
+   /* font-family: Roboto Regular, Helvetica Neue, sans-serif;*/
+    font-size: 14px;
+    color:#E8EAED;
+    height: 36px;
+    line-height: 9px;
+    border-radius: 5px;
+    
+  }
+
+  #ar-button:active {
+    background-color: #E8EAED;
+  }
+
+  #ar-button:focus {
+    outline: none;
+  }
+
+ 
+
+  @keyframes circle {
+    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+  }
+
+  @keyframes elongate {
+    from { transform: translateX(100px); }
+    to   { transform: translateX(-100px); }
+  }
+
+  model-viewer > #ar-prompt {
+    position: absolute;
+    left: 50%;
+    bottom: 175px;
+    animation: elongate 2s infinite ease-in-out alternate;
+    display: none;
+  }
+
+  model-viewer[ar-status="session-started"] > #ar-prompt {
+    display: block;
+  }
+
+  model-viewer > #ar-prompt > img {
+    animation: circle 4s linear infinite;
+  }
+
+  model-viewer > #ar-failure {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 175px;
+    display: none;
+  }
+
+  model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+    display: block;
+  }
 
 /* Header */
 
 	#header {
 		background-image: url('https://img.alicdn.com/imgextra/i4/6000000007353/O1CN01dSRNoU24BizB4Af7o_!!6000000007353-0-tbvideo.jpg');
 		padding: 3em 0 0.1em 0 ;
-		height: 35em;
+		height: 33em;
 	}
 
 	.head{
@@ -2816,9 +2885,7 @@ input, select, textarea {
 		left: -15%;
     	top: 10%
 	}
-	.view{
-		width: 70%;
-	}
+	
 	@media (max-width: 766px) {
     .head {
         display: flex;
@@ -2836,14 +2903,14 @@ input, select, textarea {
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
     }
-    .view{
+    /*.view{
     	width: 20%;
   		position: absolute;
   		top: 45%;
 		left: 70%;
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
-		    }
+		    }*/
 }
 @media (max-width: 625px) {
     
@@ -2872,7 +2939,7 @@ input, select, textarea {
     
     .model{
     	 
-    	    top: 53%;
+    	    top: 40%;
     	left: 50%;
     	height: 33vh;
     }
@@ -2888,42 +2955,36 @@ input, select, textarea {
 .window_qr{
 
     display: flex;
+    flex-direction: column;
     position: absolute;
     top: 37%;
     left: 76%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background: grey;
+    background: #bfbec6;
     visibility: hidden;
-    height: 50vh;
+    height: 65vh;
     border-radius: 10px;
 }
 .window_qr input{
-	    margin: 7px;
-   
+	margin: 7px;
     position: absolute;
+    right: 0em;
 }
 .window_qr img{
-	padding: 67px;
+	padding: 38px;
+	border-radius: 50px;
+}
+.window_qr p{
+	padding: 0 44px;
+	color: #585858;
+    font-weight: 500;
 }
 
     
     
 
-/*.model_container{
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    padding-top: min(550px ,100%);
-    max-width: 550px;
-    margin-left: auto;
-    margin-right: auto;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-}*/
+
 
 	.symbol img{
 		width: 7%;
@@ -3065,6 +3126,81 @@ input, select, textarea {
 					}
 
 		}
+/*добавление модели*/
+		.add{
+			position: fixed;
+    		
+		    top: 2em;
+		    z-index: 10000;
+		   
+  			
+  			right: 2em;
+    		top: 50em;
+  			
+  			font-size: 17px;
+  			
+  			cursor: pointer;
+  			border-radius: 50%;
+		}
+		@media screen and (max-width: 1280px){
+			.add {
+			    right: 1.5em;
+			    top:35em;
+			 }
+			}
+
+/*PopUp*/
+.popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.2);
+    display: none;
+    z-index: 100000;
+}
+
+.popup {
+    position: absolute;
+    background: #ffffff;
+    width: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    padding-top: 60px;
+}
+@media screen and (max-width: 400px){
+	.popup{
+		width: 20em;
+	}
+
+}
+
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.no-scroll {
+    overflow-y: hidden;
+}
+
+.popup-bg-edit{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.2);
+    display: none;
+    z-index: 100000;
+
+}
 
 /* Menu */
 
@@ -3416,6 +3552,19 @@ input, select, textarea {
 		}
 
 /* Wrapper */
+	.view{
+			width: 70%;
+			color: white;
+		}
+	.view_btn{
+		width: 10%;
+	  		position: absolute;
+	  		top: 45%;
+			left: 70%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+	}
+	
 
 	#wrapper > * > .inner {
 		width: 100%;
