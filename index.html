@@ -1,14 +1,4 @@
-<!-- <?php session_start();
-require_once ('assets/php/connect.php');
 
-
-$idmodel = $_SESSION["idmodel"];
-
-$sql="SELECT * FROM models WHERE id_model ='$idmodel'";
-$result=$connect->query($sql);
- $arr=$result->fetch_all(MYSQLI_ASSOC);
- 
-?> -->
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -33,7 +23,7 @@ $result=$connect->query($sql);
 								<a href="index.html" class="logo">
 									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
 								</a>
-								<button style="position: absolute;z-index: 100;" id="opt">ПРОВЕРКА</button>
+								
 
 								<div class="placement">
 									
@@ -46,11 +36,7 @@ $result=$connect->query($sql);
 								  </select></form>
 								  </div>
 
-								<!-- <?php
-							foreach ($arr as $value) {
-
-							?>
-							<form method="post"> -->
+								
 						
 							<div>
 								<model-viewer id="model_3d"
@@ -75,18 +61,13 @@ $result=$connect->query($sql);
 								<button slot="ar-button" id="ar-button">
 							    View
 							  </button>
-							  <div id="ar-prompt">
-							    <img src="assets/img/hand.png">
-							  </div>	
+							 	
 								</model-viewer>
 
 								
 							</div>
-						<!-- </form>
-							<?php
-							}
-							?>  -->
-							<button  id="buttonClck" class="view">VIEW</button>
+						
+							<button  id="buttonClck" class="view_btn">VIEW</button>
 							<div class="window_qr" id="window_qr">
 								<p>
                         				Для того чтобы начать остался один шаг! Пожалуйста, отсканируйте QR-код чтобы перейти на мобильную версию сайта
@@ -121,24 +102,19 @@ $result=$connect->query($sql);
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<!-- <?php
-							foreach ($arr as $value) {
-
-							?>
-							<form method="post">
-							<h1><?=$value['name_model']?></h1>
+							<h1>Mod</h1>
 						
-							</form>
-							<?php
-							}
-							?> -->
+							
 
 
 							
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>Discription</p>
+							
+							
 						</div>
+						<div class="controls">
+							    <button onclick="exportGLB()">Export Model</button>
+							</div>
 					</div>
 
 				<!-- Footer -->
@@ -185,91 +161,7 @@ $result=$connect->query($sql);
 			</div>
 
 
-			<style>
-  /* This keeps child nodes hidden while the element loads */
-  :not(:defined) > * {
-    display: none;
-  }
-
-  model-viewer {
-   
-    overflow-x: hidden;
-  }
-  
-
-  #ar-button {
-    background-image: url(assets/img/cube.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: 12px 50%;
-    
-    position: absolute;
-    left: 80%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    bottom: 132px;
-    padding: 0px 16px 0px 40px;
-   /* font-family: Roboto Regular, Helvetica Neue, sans-serif;*/
-    font-size: 14px;
-    color:white;
-    height: 36px;
-    line-height: 9px;
-    border-radius: 18px;
-    
-  }
-
-  #ar-button:active {
-    background-color: #E8EAED;
-  }
-
-  #ar-button:focus {
-    outline: none;
-  }
-
-  /*#ar-button:focus-visible {
-    outline: 1px solid #4285f4;
-  }*/
-
-  @keyframes circle {
-    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
-    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
-  }
-
-  @keyframes elongate {
-    from { transform: translateX(100px); }
-    to   { transform: translateX(-100px); }
-  }
-
-  model-viewer > #ar-prompt {
-    position: absolute;
-    left: 50%;
-    bottom: 175px;
-    animation: elongate 2s infinite ease-in-out alternate;
-    display: none;
-  }
-
-  model-viewer[ar-status="session-started"] > #ar-prompt {
-    display: block;
-  }
-
-  model-viewer > #ar-prompt > img {
-    animation: circle 4s linear infinite;
-  }
-
-  model-viewer > #ar-failure {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 175px;
-    display: none;
-  }
-
-  model-viewer[ar-tracking="not-tracking"] > #ar-failure {
-    display: block;
-  }
-
-
-</style>
+		
 <script type="module">
         if (navigator.userAgentData.mobile){
 				 	document.getElementById("buttonClck").style.visibility = "hidden";
@@ -310,6 +202,17 @@ $result=$connect->query($sql);
         });
   
      </script>
+     <script>
+		  async function exportGLB(){
+		    const modelViewer = document.getElementById("model_3d");
+		    const glTF = await modelViewer.exportScene();
+		    const file = new File([glTF], "export.glb");
+		    const link = document.createElement("a");
+		    link.download =file.name;
+		    link.href = URL.createObjectURL(file);
+		    link.click();
+		  }
+	</script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
