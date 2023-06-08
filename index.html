@@ -1,8 +1,7 @@
-
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>3D Model</title>
+		<title>Phantom by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -12,64 +11,44 @@
 		<script nomodule src="https://www.unpkg.com/@google/model-viewer@1.4.1/dist/model-viewer-legacy.js"></script>
 	</head>
 	<body class="is-preload">
+
+	
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
-						<div class="inner">
-
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
-								</a>
+							<div class="head" >
 								
+								<div id="logo">
+									<h1><a href="index.php">LIFE_SPACE</a></h1>
+									<p>A free 3d models for download and introductory view</p>
+								</div>
 
-								<div class="placement">
-									
-									<p>Select the surface on which the model will be placed</p>
-									<hr size=3px align="left" width="100%" margin = 0>
-									<form autofocus="autofocus">
-									<select id="arplacement" class="style2" >
-								    <option value="floor">FLOOR</option>
-								    <option value="wall">WALL</option>
-								  </select></form>
-								  </div>
-
-								
-						
-							<div>
-								<model-viewer id="model_3d"
-								src="models/1.glb"
+								<div class="model_container" >
+								<model-viewer class="model"
+								src="models/cat.glb"
 								auto-rotate
-								camera-controls
-								ar
 								touch-action="pan-y"
 								shadow-intensity="1"
+								camera-controls
+								ar="true"
 								ar-placement="floor"
 								ar-modes="scene-viewer quick-look"
 								ios-src="models/scene.gltf"
 								alt="A 3D model carousel"
-								data-js-focus-visible
-								style="width: auto;
-    							height: 76vh;
-						    	padding-top: 5%;
-						    	left: 50%;
-						    	-ms-transform: translate(-50%, -50%);
-						    	transform: translate(-50%, -20%);"
-								>
+								data-js-focus-visible>
 								<button slot="ar-button" id="ar-button">
 							    View
-							  </button>
-							  <div id="ar-prompt">
-							    <img src="assets/img/hand.png">
-							  </div>	
+							  </button>	
 								</model-viewer>
-
 								
+								<button  id="buttonClck" class="view">VIEW</button>
 							</div>
-						
-							<button  id="buttonClck" class="view_btn">VIEW in space</button>
+
+							
+
+
 							<div class="window_qr" id="window_qr">
 								<p>
                         				Для того чтобы начать остался один шаг! Пожалуйста, отсканируйте QR-код чтобы перейти на мобильную версию сайта
@@ -78,6 +57,8 @@
                         		<input type="button" class="exit" id="exitClick" value="X">
                        			<img src="assets/img/qrcode.png"> 
                     		</div>
+							</div>
+								
 
 							<!-- Nav -->
 								<nav>
@@ -86,32 +67,177 @@
 									</ul>
 								</nav>
 
-						</div>
+						
 					</header>
 
 				<!-- Menu -->
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="elements.html">Models</a></li>
-							
+							<li><a href="index.php">Home</a></li>
+							<li><a href="generic.html">Models</a></li>
+							<li><a href="auth.php">Log Out</a></li>
+							<li><a href="elements.html">Elements</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
+							<header>
+								<h1>This is Phantom, a free, fully responsive site<br />
+								template designed by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+							</header>
+							<section class="tiles">
+								<article class="col-6 col-12-xsmall work-item">
 
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<button style="
+									width: 70%;
+								    position: absolute;
+								    margin: 1%;
+								    left: 50%;
+								    -ms-transform: translate(-50%, -50%);
+								    transform: translate(-50%, -50%);" name="idmod" value="<?=$value['id_model']?>">SEE</button>
+									<a>
+										<h2></h2>
+										<div class="content">
+											<p></p>
+										</div>
+									</a>
+									
+								</article>
+								
+							
 
 							
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Lorem</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href0="generic.html">
+										<h2>Feugiat</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Tempus</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Aliquam</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Veroeros</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Ipsum</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Dolor</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Nullam</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Ultricies</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Dictum</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<span class="image">
+										<img src="images/01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Pretium</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+							</section>
 						</div>
 					</div>
-
-					<div class="controls">
-							    <button onclick="exportGLB()">Export Model</button>
-							</div>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -156,8 +282,7 @@
 
 			</div>
 
-
-			<style>
+<style>
   /* This keeps child nodes hidden while the element loads */
   :not(:defined) > * {
     display: none;
@@ -241,9 +366,11 @@
   }
 
 
-</style>
-<script type="module">
-        if (navigator.userAgentData.mobile){
+</style>	
+
+			<script type="module">
+        if (navigator.userAgentData.mobile || navigator.userAgent.match(/(iPad|iPhone|iPod)/i))
+        {
 				 	document.getElementById("buttonClck").style.visibility = "hidden";
 				 }
 				 
@@ -262,36 +389,13 @@
         		}
             
         
-    
+    	customElements.get("model-viewer").minimumRenderScale = 1;
+    	
         exitClick.onclick = function(){
             document.getElementById("window_qr").style.visibility = "hidden";
         }
-
-        
-        	
-        	
-        	const modelViewer = document.getElementById("model_3d");
-
-        	const select = document.getElementById("arplacement");
-      select.addEventListener("input", event => {
-        console.log("CHANGE AR PLACEMENT");
-        console.log(event.target.value);
-        modelViewer.arPlacement = event.target.value;
-        
-
-        });
-
-       async function exportGLB(){
-		    const modelViewer = document.getElementById("model_3d");
-		    const glTF = await modelViewer.exportScene();
-		    const file = new File([glTF], "export.glb");
-		    const link = document.createElement("a");
-		    link.download =file.name;
-		    link.href = URL.createObjectURL(file);
-		    link.click();
-		  }
-  
      </script>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
