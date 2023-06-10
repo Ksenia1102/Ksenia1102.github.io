@@ -24,14 +24,18 @@
 </form>
 <script type="module">
 
-var modelViewer = document.getElementById('model-viewer');
-// modelViewer.addEventListener('load', function () { 
-//     modelViewer.activateAR(); 
+const modelViewer = document.getElementById('model-viewer');
+modelViewer.addEventListener('load', function () { 
+    // modelViewer.activateAR(); 
+     document.getElementById('ar-button').click();
 
-// });
-const myBtn = document.getElementById('ar-button');
- myBtn.click();
+});
+document.getElementById('ar-button').click();
+
   
+</script>
+<script>
+  document.getElementById('ar-button').click();
 </script>
 <style>
   /* This keeps child nodes hidden while the element loads */
