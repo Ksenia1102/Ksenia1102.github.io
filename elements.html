@@ -27,14 +27,14 @@
 
 								<div class="model_container" >
 								<model-viewer class="model"
-								src="models/kitty.usdz"
+								src="models/cat.glb"
 								auto-rotate
 								touch-action="pan-y"
 								shadow-intensity="1"
 								camera-controls
 								ar
 								ar-placement="floor"
-								ar-modes="scene-viewer quick-look"
+								ar-modes="webxr scene-viewer quick-look"
 								ios-src="models/kitty.usdz"
 								alt="A 3D model carousel"
 								data-js-focus-visible>
@@ -366,7 +366,7 @@
         		}
             
         
-    
+    customElements.get("model-viewer").minimumRenderScale = 1;
         exitClick.onclick = function(){
             document.getElementById("window_qr").style.visibility = "hidden";
         }
