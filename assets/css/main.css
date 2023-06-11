@@ -29,7 +29,7 @@ body {
 ol, ul {
 	list-style: none;
 }
-
+z
 blockquote, q {
 	quotes: none;
 }
@@ -2099,8 +2099,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
-	select,
-	textarea {
+	select {
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -2130,8 +2129,7 @@ input, select, textarea {
 		input[type="password"]:focus,
 		input[type="email"]:focus,
 		input[type="tel"]:focus,
-		select:focus,
-		textarea:focus {
+		select:focus {
 			border-bottom-color: #f2849e;
 			box-shadow: inset 0 -1px 0 0 #f2849e;
 		}
@@ -2166,6 +2164,7 @@ input, select, textarea {
 	}
 
 	textarea {
+		height: 36vh;
 		padding: 0;
 		min-height: 3.75em;
 	}
@@ -2613,7 +2612,7 @@ input, select, textarea {
 				padding: 1em;
 				border-radius: 4px;
 				border-bottom: 0;
-				color: #ffffff;
+				color: #383646;
 				text-align: center;
 				text-decoration: none;
 				z-index: 3;
@@ -2624,7 +2623,7 @@ input, select, textarea {
 				}
 
 				.tiles article > a:hover {
-					color: #ffffff !important;
+					color: #f2849e !important;
 				}
 
 				.tiles article > a h2 {
@@ -2734,35 +2733,6 @@ input, select, textarea {
   }
   
 
-  #ar-button {
-    background-image: url(assets/img/cube.png);
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: 12px 50%;
-    
-    position: absolute;
-    left: 70%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    bottom:60px;
-    padding: 0px 16px 0px 40px;
-   /* font-family: Roboto Regular, Helvetica Neue, sans-serif;*/
-    font-size: 14px;
-    color:#E8EAED;
-    height: 36px;
-    line-height: 9px;
-    border-radius: 5px;
-    
-  }
-
-  #ar-button:active {
-    background-color: #E8EAED;
-  }
-
-  #ar-button:focus {
-    outline: none;
-  }
-
  
 
   @keyframes circle {
@@ -2808,12 +2778,13 @@ input, select, textarea {
 	#header {
 		background-image: url('https://img.alicdn.com/imgextra/i4/6000000007353/O1CN01dSRNoU24BizB4Af7o_!!6000000007353-0-tbvideo.jpg');
 		padding: 3em 0 0.1em 0 ;
-		height: 33em;
+		height: 40em;
 	}
 
 	.head{
 		display: flex; 
-		    align-items: center;
+		align-items: center;
+    	justify-content: center;
 		
 	}
 	.placement{
@@ -2874,111 +2845,77 @@ input, select, textarea {
 }
 
 	.model_container{
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
+		
+	    display: flex;
+	    bottom: 8em;
+	    flex-wrap: wrap;
+	    flex-direction: column;
+	    align-items: center;
 
 	}
 	.model{
-		position: relative;
 		height: 50vh;
-		left: -15%;
-    	top: 10%
+	    left: 50%;
+	    transform: translateX(-50%);
 	}
 	
-	@media (max-width: 766px) {
-    .head {
-        display: flex;
-        flex-wrap: wrap;
+    
 
-    }
+@media screen and (max-width: 920px) {
+    
+    .head{
+    	    flex-direction: column;
+    }}
 
-   
-    .model{
-    	 
-    	height: 45vh;
-    	position: absolute;
-  		top: 45%;
-		left: 33%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-    }
-    /*.view{
-    	width: 20%;
-  		position: absolute;
-  		top: 45%;
-		left: 70%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		    }*/
-}
-@media (max-width: 625px) {
+@media screen and (max-height: 920px) {
     
-    .model{
-    	 top: 45%;
-    	height: 39vh;
+    #header{
+    	    height: 45em;
     }
-}
-@media (max-width: 475px) {
     
-    .model{
-    	 top: 53%;
-    	left: 50%;
-    	height: 38vh;
-    }
-    .view{
-
-  		top: 57%;
-		left: 50%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		height: 5%;
-    }
-}
-@media (max-width: 437px) {
-    
-    .model{
-    	 
-    	    top: 40%;
-    	left: 50%;
-    	height: 33vh;
-    }
-}
-@media (max-width: 330px) {
-    
-    .model{
-    	 
-    	height: 30vh;
-    }
 }
 
+/*QRs*/
 .window_qr{
 
+    width: 49vh;
+    bottom: -99px;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 37%;
-    left: 76%;
+    left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background: #bfbec6;
     visibility: hidden;
-    height: 65vh;
     border-radius: 10px;
+    align-items: center;
 }
 .window_qr input{
-	margin: 7px;
-    position: absolute;
-    right: 0em;
+	width: 13%;
+    margin: 7px;
+    margin-left: 20em;
+    
 }
 .window_qr img{
-	padding: 38px;
-	border-radius: 50px;
+	width: 70%;
+    margin: 18px;
+    border-radius: 10px;
 }
 .window_qr p{
-	padding: 0 44px;
-	color: #585858;
+	    padding: 0 35px;
+    color: #585858;
     font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+.generator{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+#main button{
+	margin-bottom: 10px;
 }
 
     
@@ -2987,14 +2924,27 @@ input, select, textarea {
 
 
 	.symbol img{
-		width: 7%;
-	}	
+		width: 12%;
+	}
+	
+	.inner span{
+  	color: whitesmoke;
+
+  }	
+  .logo_cube{
+  	position: absolute;
+    top: 1.5em;
+    left: 2%;
+  } 
+  .logo_cube .title{
+  	color: whitesmoke;
+  }
 		
 	#logo {
-		width: 70%;
+		
 		text-align: center;
 		position: relative;
-		top: 1.5em;
+    	top: 1em;
 	}
 
 		#logo h1 {
@@ -3113,7 +3063,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding: 4em 0 0.1em 0 ;
+				/*padding: 4em 0 0.1em 0 ;*/
 			}
 
 				#header nav {
@@ -3161,6 +3111,7 @@ input, select, textarea {
     z-index: 100000;
 }
 
+
 .popup {
     position: absolute;
     background: #ffffff;
@@ -3171,9 +3122,46 @@ input, select, textarea {
     padding: 30px;
     padding-top: 60px;
 }
+.pop{
+	display: flex;
+    position: absolute;
+    background: #ffffff;
+    border-radius: 5px;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+  
+}
+.pop label{
+	margin: 0;
+}
+.pop textarea{
+	padding: 10px;
+	width: 50vh;
+	overflow: hidden;
+    resize: none;
+    border: 0.2px solid grey;
+    height: 36vh;
+}
+@media screen and (max-width: 845px){
+	.pop{
+		flex-direction: column;
+	}
+
+}
 @media screen and (max-width: 400px){
 	.popup{
 		width: 20em;
+	}
+
+}
+@media screen and (max-width: 420px){
+	.pop{
+		width:20em;
+	}
+	.pop textarea{
+		width: 25vh;
 	}
 
 }
@@ -3564,7 +3552,7 @@ input, select, textarea {
 			-ms-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 	}
-	
+
 
 	#wrapper > * > .inner {
 		width: 100%;
@@ -3580,3 +3568,24 @@ input, select, textarea {
 			}
 
 		}
+
+
+
+  .form{
+  	display: flex;
+    width: 30%;
+    padding: 38px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .form button{
+  	margin-top: 10px;
+  }
+  .inner a{
+  	color: whitesmoke;
+  }
